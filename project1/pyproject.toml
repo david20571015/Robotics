@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "project1"
+version = "0.1.0"
+description = ""
+authors = ["David Chiu <david20571015@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+numpy = "^1.26.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.2"
+yapf = "^0.40.2"
+isort = "^5.12.0"
+
+[tool.yapf]
+based_on_style = "google"
+
+[tool.isort]
+profile = "google"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
