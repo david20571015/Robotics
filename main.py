@@ -2,8 +2,7 @@ import argparse
 
 import numpy as np
 
-from project1 import backward
-from project1 import forward
+from robotics import kinematics
 
 
 def check_out_of_range(value, upper_bound, lower_bound):
@@ -16,9 +15,9 @@ def check_out_of_range(value, upper_bound, lower_bound):
 
 
 def forward_kinematics(dh_table, upper_bound, lower_bound):
-    jv = forward.input_joint_variable(upper_bound, lower_bound)
+    jv = kinematics.input_joint_variable(upper_bound, lower_bound)
     check_out_of_range(jv, upper_bound, lower_bound)
-    noap, output = forward.kinematics(jv, dh_table)
+    noap, output = kinematics.forward(jv, dh_table)
 
     def print_mat(name, mat):
         print(name + ':')
@@ -30,8 +29,8 @@ def forward_kinematics(dh_table, upper_bound, lower_bound):
 
 
 def backward_kinematics(dh_table, upper_bound, lower_bound):
-    cartesian_coordinate = backward.input_cartesian_point()
-    jvs = backward.kinematics(cartesian_coordinate, dh_table)
+    cartesian_coordinate = kinematics.input_cartesian_point()
+    jvs = kinematics.backward(cartesian_coordinate, dh_table)
 
     # Normalize theta to (-180, 180]
     jvs = (jvs + 180) % 360 - 180

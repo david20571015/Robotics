@@ -1,6 +1,26 @@
-# Robotics Project 1
+# Robotics
 
-## Overview
+## Environment
+
+- Ubuntu 22.04
+- Python 3.11.0
+
+- Use [poetry](https://python-poetry.org/) (recommended)
+
+```bash
+poetry install
+poetry shell
+```
+
+- Or use pip
+
+```bash
+pip install -r requirements.txt
+```
+
+## Project 1
+
+### Overview
 
 For a PUMA 560 robot manipulator with the following DH parameters:
 
@@ -30,25 +50,7 @@ write a program to for the following transformations:
    - input: Cartesian point $(n, o, a, p)$
    - output: Joint angles $(\theta_1, \theta_2, \theta_3, \theta_4, \theta_5, \theta_6)$
 
-## Environment
-
-- Ubuntu 22.04
-- Python 3.11.0
-
-- Use [poetry](https://python-poetry.org/) (recommended)
-
-```bash
-poetry install
-poetry shell
-```
-
-- Or use pip
-
-```bash
-pip install -r requirements.txt
-```
-
-## Usage
+### Usage
 
 - Forward Kinematics
 
