@@ -3,7 +3,7 @@ from functools import reduce
 import numpy as np
 
 
-def input_joint_variable(upper_bound, lower_bound):
+def input_joint_variable(upper_bound: np.ndarray, lower_bound: np.ndarray):
     prompt = 'please enter the joint variable (in degree):\n'
 
     items = []
@@ -19,7 +19,8 @@ def input_joint_variable(upper_bound, lower_bound):
     return joint_variable
 
 
-def dh2trans(d, a, alpha, theta):
+def dh2trans(d: np.ndarray, a: np.ndarray, alpha: np.ndarray,
+             theta: np.ndarray):
     return np.array(
         [
             [

@@ -3,18 +3,11 @@ import argparse
 import numpy as np
 
 from robotics import kinematics
+from robotics.utils import check_out_of_range
 
 
-def check_out_of_range(value, upper_bound, lower_bound):
-    for i, (theta, upper, lower) in enumerate(
-            zip(value, upper_bound, lower_bound),
-            start=1,
-    ):
-        if not lower <= theta <= upper:
-            print(f'theta{i} is out of range!')
-
-
-def forward_kinematics(dh_table, upper_bound, lower_bound):
+def forward_kinematics(dh_table: np.ndarray, upper_bound: np.ndarray,
+                       lower_bound: np.ndarray):
     jv = kinematics.input_joint_variable(upper_bound, lower_bound)
     check_out_of_range(jv, upper_bound, lower_bound)
     noap, output = kinematics.forward(jv, dh_table)
@@ -28,7 +21,8 @@ def forward_kinematics(dh_table, upper_bound, lower_bound):
     print_mat('output', output)
 
 
-def backward_kinematics(dh_table, upper_bound, lower_bound):
+def backward_kinematics(dh_table: np.ndarray, upper_bound: np.ndarray,
+                        lower_bound: np.ndarray):
     cartesian_coordinate = kinematics.input_cartesian_point()
     jvs = kinematics.backward(cartesian_coordinate, dh_table)
 
