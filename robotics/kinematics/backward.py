@@ -82,6 +82,8 @@ def kinematics(cartesian_coordinate: np.ndarray, dh_table: np.ndarray):
     # Combine all theta
     theta456 = np.stack([theta4, theta5, theta6], axis=1)
     theta456_ = np.stack([theta4 + np.pi, -theta5, theta6 + np.pi], axis=1)
+    theta456_[theta456_ > np.pi] -= 2 * np.pi
+    theta456_[theta456_ < -np.pi] += 2 * np.pi
     theta456 = np.concatenate([*zip(theta456, theta456_)], axis=0)
 
     theta123 = np.repeat(theta123, 2, axis=0)
