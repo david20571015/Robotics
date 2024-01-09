@@ -55,11 +55,80 @@ write a program to for the following transformations:
 - Forward Kinematics
 
 ```bash
-python3 main.py forward
+python3 main.py kinematics forward
 ```
 
 - Inverse Kinematics
 
 ```bash
-python3 main.py backward
+python3 main.py kinematics backward
+```
+
+## Project 2
+
+### Overview
+
+For a PUMA 560 robot manipulator in Project 1, write a program to plan a path.
+
+- Start point:
+
+$$
+A = \begin{bmatrix}
+   0.64 & 0.77  & 0  & 0.05  \\
+   0.77 & -0.64 & 0  & -0.55 \\
+   0    & 0     & -1 & -0.6  \\
+   0    & 0     & 0  & 1
+\end{bmatrix}
+$$
+
+- Via point:
+
+$$
+B = \begin{bmatrix}
+   0.87 & -0.1 & 0.48  & 0.5  \\
+   0.29 & 0.9  & -0.34 & -0.4 \\
+   -0.4 & 0.43 & 0.81  & 0.4  \\
+   0    & 0    & 0     & 1
+\end{bmatrix}
+$$
+
+- End point:
+
+$$
+C = \begin{bmatrix}
+   0.41 & -0.29 & 0.87  & 0.6  \\
+   0.69 & 0.71  & -0.09 & 0.15 \\
+   -0.6 & 0.64  & 0.49  & -0.3 \\
+   0    & 0     & 0     & 1
+\end{bmatrix}
+$$
+
+The time to move from $A$ to $B$ is 0.5 seconds, and the time to move from $B$ to $C$ is 0.5 seconds.
+The $t_{acc}$ for transition portion is 0.2 seconds and the sampling time is 0.002 seconds.
+
+Write a program for the following movements:
+
+1. Joint move
+   1. Position of each joint
+   2. Velocity of each joint
+   3. Acceleration of each joint
+   4. 3D trajectory
+2. Cartesian move
+   1. Position of each x, y, z
+   2. Velocity of each x, y, z
+   3. Acceleration of each x, y, z
+   4. 3D trajectory
+
+### Usage
+
+- Joint move
+
+```bash
+python3 main.py move joint
+```
+
+- Cartesian move
+
+```bash
+python3 main.py move cartesian
 ```
